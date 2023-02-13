@@ -1,10 +1,10 @@
 from typing import Optional, Iterable
 
-from functions import filter_query, limit_query, map_query, sort_query, unique_qurey
+from functions import filter_query, limit_query, map_query, sort_query, unique_query
 
 CMD_TO_FUNCTION = {
     'filter' : filter_query,
-    'unique' : unique_qurey,
+    'unique' : unique_query(),
     'limit' : limit_query,
     'map' : map_query,
     'sort' : sort_query
