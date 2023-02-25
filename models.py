@@ -5,7 +5,7 @@ class RequestSchema(Schema):
     cmd = fields.Str(required=True)
     value = fields.Str(required=True)
 
-    @validate_schema
+    @validates_schema
     def check_all_cmd_valid(self, values: dict[str, str], *args, **kwargs):
         if values['cmd'] not in VALID_CMD_COMMANDS:
             raise ValidationError('cmd contains invalid value')

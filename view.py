@@ -1,4 +1,6 @@
-from flask import Blueprint, request, jsonify
+from typing import Union, Tuple, Dict, List
+
+from flask import Blueprint, request, jsonify, Response
 from marshmallow import ValidationError
 
 from builder import build_query
@@ -9,9 +11,9 @@ FILE_NAME = 'data/apache_logs.txt'
 main_bp = Blueprint('main', __name__)
 
 @main_bp.route('/perform_query', methods=['POST'])
-def perfrom_query():
+def perfrom_query() -> Union[Response, Tuple[Response, int]]:
     #Принимаем запрос от пользователя
-    data = request.json
+    data: Dict[str, Union[List[dict], str]] = request.json
     #Обрабатываем запрос, валидируем значения
     try:
         validate_data = RequestSchema().load(data)
