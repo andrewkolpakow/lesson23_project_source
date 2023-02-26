@@ -4,7 +4,7 @@ from flask import Blueprint, request, jsonify, Response
 from marshmallow import ValidationError
 
 from builder import build_query
-from models import RequestSchema
+from models import RequestSchema, BatchRequestSchema
 
 FILE_NAME = 'data/apache_logs.txt'
 
@@ -16,7 +16,7 @@ def perfrom_query() -> Union[Response, Tuple[Response, int]]:
     data: Dict[str, Union[List[dict], str]] = request.json
     #Обрабатываем запрос, валидируем значения
     try:
-        validate_data = RequestSchema().load(data)
+        validate_data = BatchRequestSchema().load(data)
     except ValidationError as error:
         return jsonify(error.messages), 400
 

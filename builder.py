@@ -3,11 +3,11 @@ from typing import Optional, Iterable, Dict, Callable, List
 from functions import filter_query, limit_query, map_query, sort_query, unique_query, regex_query
 
 CMD_TO_FUNCTION: Dict[str, Callable] = {
-    'filter' : filter_query,
-    'unique' : unique_query,
-    'limit' : limit_query,
-    'map' : map_query,
-    'sort' : sort_query,
+    'filter': filter_query,
+    'unique': unique_query,
+    'limit': limit_query,
+    'map': map_query,
+    'sort': sort_query,
     'regex': regex_query
 }
 
