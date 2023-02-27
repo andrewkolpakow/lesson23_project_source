@@ -15,7 +15,7 @@ CMD_TO_FUNCTION: Dict[str, Callable] = {
 def read_file(file_name: str) -> Iterable[str]:
     with open(file_name) as file:
         for line in file:
-            yield file
+            yield line
 
 
 def build_query(cmd: str, value: str, file_name: str, data: Optional[Iterable[str]]) -> List[str]:
