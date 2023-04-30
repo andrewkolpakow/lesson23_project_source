@@ -1,0 +1,7 @@
+version: '3.3'
+
+services:
+  web:
+    image: andkol90/skypro_andkol:$GITHUB_REF_NAME-$GITHUB_RUN_ID
+    ports:
+      - 25000:25000
