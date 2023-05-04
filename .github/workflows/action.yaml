@@ -24,7 +24,7 @@ jobs:
           mkdir deploy
           type docker-compose-ci.yaml | envsubst > deploy/docker-compose.yaml
       - name: copy files to server
-        uses: appleboy/scp-action@master
+        uses: appleboy/scp-action@v0.1.4
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
