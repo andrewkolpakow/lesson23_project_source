@@ -10,6 +10,10 @@ FILE_NAME = 'data/apache_logs.txt'
 
 main_bp = Blueprint('main', __name__)
 
+@main_bp.route('/', methods=['GET'])
+def main():
+    return '1'
+
 @main_bp.route('/perform_query', methods=['POST'])
 def perfrom_query() -> Union[Response, Tuple[Response, int]]:
     #Принимаем запрос от пользователя
