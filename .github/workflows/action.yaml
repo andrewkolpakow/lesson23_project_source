@@ -34,12 +34,12 @@ jobs:
           strip_components: 1
 
       - name: deploy app
-        uses: appleboy/ssh-actcomion@v0.1.10
+        uses: appleboy/ssh-action@v0.1.10
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           script: |
-            cd flask_app_ci
+            cd flask_ci
             echo ${{ secrets.PASSWORD }} | sudo -S docker-compose down
             echo ${{ secrets.PASSWORD }} | sudo -S docker-compose up -d
